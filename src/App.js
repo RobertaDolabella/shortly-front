@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import Login from './pages/Login';
+import Subscription from './pages/Subscription';
+import Ranking from './pages/Ranking';
+import Logout from './pages/Logout';
 import './App.css';
+import ResetCSS from './assets/css/reset';
+import GlobalCSS from './assets/css/global';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ResetCSS/>
+        <GlobalCSS/>
+          <Routes>
+            <Route element={< Login />} path={"/"} />
+            <Route element={< Subscription />} path={"/signup"} />
+            <Route element={< Home />} path={"/home"} />
+            <Route element={< Ranking />} path={"/ranking"} />
+            <Route element={< Logout />} path={"/logout"} />
+
+          </Routes>
+  
+    </BrowserRouter>
   );
 }
 
